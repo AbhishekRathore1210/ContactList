@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <style>
+            body{
+                background-color: aqua;
+            }
+            ul{
+                list-style: none;
+            }
+        </style>
+        <link rel="stylesheet" href="/css/home.css">
+        <body>
+            <h1 id="page-heading">My Contacts List</h1>
+            <div class="contact-list-container">
+            <ul>
+            <% for(i of contact_list) {%>
+                <li class="contact">
+                    <span><%= i.name%></span>
+                    <span><%= i.phone%></span>
+                    <a href="/delete-contact/?id=<%=i._id%>">Delete</a>
+                </li>
+                <%} %>
+            </ul>
+        </div>
+            <form action="/form" method="post">
+                <input type="text" name="name" placeholder="Enter name" required>
+                <input type="number" name="phone" placeholder="Enter number" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </body>
+        <script src = "/js/home.js"></script>
+    </head>
+</html>
